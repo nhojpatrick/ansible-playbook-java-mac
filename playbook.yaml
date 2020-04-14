@@ -13,6 +13,16 @@
 
   tasks:
 
+    - name: Checking if jdk already installed
+      stat:
+        path: "{{ jvm_home }}/{{ java_dir_name }}"
+      register: java_home
+
+    - name: Fail if jdk already installed
+      fail:
+        msg: "Already installed {{ jvm_home }}/{{ java_dir_name }}"
+      when: java_home.stat.exists
+
     - name: Temporary jdk directory
       tempfile:
         state: directory
