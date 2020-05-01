@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     jdk_major: "15"
-    jdk_build: "20"
+    jdk_build: "21"
     jdk_file: "openjdk-{{ jdk_major }}-ea+{{ jdk_build }}_osx-x64_bin.tar.gz"
     jdk_url: "https://download.java.net/java/early_access/jdk{{ jdk_major }}/{{ jdk_build }}/GPL/{{ jdk_file }}"
     jdk_archive_subdir: "jdk-{{ jdk_major }}.jdk"
