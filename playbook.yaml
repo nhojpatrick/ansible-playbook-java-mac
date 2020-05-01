@@ -2,16 +2,14 @@
 - hosts: localhost
   vars:
     jdk_major: "15"
+    jdk_minor: "ea"
     jdk_build: "18"
-    jdk_file: "openjdk-{{ jdk_major }}-ea+{{ jdk_build }}_osx-x64_bin.tar.gz"
-    jdk_url: "https://download.java.net/java/early_access/jdk{{ jdk_major }}/{{ jdk_build }}/GPL/{{ jdk_file }}"
-    jdk_archive_subdir: "jdk-{{ jdk_major }}.jdk"
-    jvm_home: "/Library/Java/JavaVirtualMachines"
-    java_dir_name: "jdk-{{ jdk_major }}_ea_{{ jdk_build }}.jdk"
-    java_owner: root
-    java_group: wheel
 
   tasks:
+
+    - name: Include Vars
+      include_vars:
+        file: vars.yaml
 
     - name: Checking if jdk already installed
       stat:
