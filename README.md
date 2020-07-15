@@ -13,7 +13,7 @@ Will install the default playbook version. Check playbook for jdk_major and jdk_
 ## Install specific jdk
 
 ```bash
-$ ansible-playbook --ask-become-pass --extra-vars "jdk_build=18" playbook.yaml
+$ ansible-playbook --ask-become-pass --extra-vars "jdk_build=31" playbook.yaml
 ```
 Will install a specified version. Check playbook for jdk_major and jdk_build to understand what version will be installed, but jdk_build will be taken from the command line.
 
