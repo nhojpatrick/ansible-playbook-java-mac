@@ -2,14 +2,29 @@
 - hosts: localhost
   vars:
     jdk_major: "15"
-    jdk_minor: "ea"
-    jdk_build: "35"
+    jdk_minor: "ea" # leave as ea
+    jdk_build: "36"
 
   tasks:
+
+    - name: Override - JDK 15 >= 35
+      set_fact:
+        jdk_minor: "rc"
+      when:
+        - jdk_major == "15"
+        - jdk_build|int >= 35
 
     - name: Include Vars
       include_vars:
         file: vars.yaml
+
+    - name: Override - JDK 15 build 36
+      set_fact:
+        jdk_url: "https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_osx-x64_bin.tar.gz"
+      when:
+        - jdk_major == "15"
+        - jdk_minor == "rc"
+        - jdk_build == "36"
 
     - name: Checking if jdk already installed
       stat:
