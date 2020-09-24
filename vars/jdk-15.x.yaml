@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 15.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_osx-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-15.jdk"
+  when:
+    - jdk_major == "15"
+    - jdk_minor == "0"
+    - jdk_build == "0"
