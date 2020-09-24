@@ -8,3 +8,11 @@
     - jdk_major == "14"
     - jdk_minor == "0"
     - jdk_build == "0"
+
+- name: Override - JDK 14.0.1
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_osx-x64_bin.tar.gz"
+  when:
+    - jdk_major == "14"
+    - jdk_minor == "0"
+    - jdk_build == "1"
