@@ -1,9 +1,9 @@
 ---
 - hosts: localhost
   vars:
-    jdk_major: "15"
-    jdk_minor: "0" # leave as ea
-    jdk_build: "2"
+    jdk_major: "16"
+    jdk_minor: "ea" # leave as ea
+    jdk_build: "17"
 
   tasks:
 
