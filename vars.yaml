@@ -6,5 +6,4 @@ java_dir_name: "jdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('_ea_', '.
 java_owner: root
 java_group: wheel
 
-#https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_osx-x64_bin.tar.gz
 #https://download.java.net/java/early_access/jdk15/21/GPL/openjdk-15-ea+21_osx-x64_bin.tar.gz

@@ -18,6 +18,14 @@
       include_vars:
         file: vars.yaml
 
+    - name: Override - JDK 14.0.1
+      set_fact:
+        jdk_url: "https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_osx-x64_bin.tar.gz"
+      when:
+        - jdk_major == "14"
+        - jdk_minor == "0"
+        - jdk_build == "1"
+
     - name: Override - JDK 15 build 36
       set_fact:
         jdk_url: "https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_osx-x64_bin.tar.gz"
