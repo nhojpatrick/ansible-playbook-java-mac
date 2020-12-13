@@ -3,7 +3,7 @@
   vars:
     jdk_major: "16"
     jdk_minor: "ea" # leave as ea
-    jdk_build: "27"
+    jdk_build: "28"
 
   tasks:
 
