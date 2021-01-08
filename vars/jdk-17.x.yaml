@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 17.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-17.jdk"
+  when:
+    - jdk_major == "17"
+    - jdk_minor == "0"
+    - jdk_build == "0"
