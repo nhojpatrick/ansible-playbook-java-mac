@@ -16,6 +16,11 @@
       when:
         - jdk_major == "10"
 
+    - name: Include JDK 11.x Overrides
+      include_tasks: vars/jdk-11.x.yaml
+      when:
+        - jdk_major == "11"
+
     - name: Checking if jdk already installed
       stat:
         path: "{{ jvm_home }}/{{ java_dir_name }}"
