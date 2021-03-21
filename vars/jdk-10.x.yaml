@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 10.0.0
+  set_fact:
+    jdk_url: "https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_osx-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-10.jdk"
+  when:
+    - jdk_major == "10"
+    - jdk_minor == "0"
+    - jdk_build == "0"
