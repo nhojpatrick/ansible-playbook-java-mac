@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 11.0.0
+  set_fact:
+    jdk_url: "https://download.java.net/java/ga/jdk11/openjdk-11_osx-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-11.jdk"
+  when:
+    - jdk_major == "11"
+    - jdk_minor == "0"
+    - jdk_build == "0"
