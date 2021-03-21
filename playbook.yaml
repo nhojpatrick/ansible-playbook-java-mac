@@ -11,6 +11,11 @@
       include_vars:
         file: vars.yaml
 
+    - name: Include JDK 10.x Overrides
+      include_tasks: vars/jdk-10.x.yaml
+      when:
+        - jdk_major == "10"
+
     - name: Checking if jdk already installed
       stat:
         path: "{{ jvm_home }}/{{ java_dir_name }}"
