@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 12.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk12/33/GPL/openjdk-12_osx-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-12.jdk"
+  when:
+    - jdk_major == "12"
+    - jdk_minor == "0"
+    - jdk_build == "0"
