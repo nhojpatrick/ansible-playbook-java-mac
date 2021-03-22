@@ -1,9 +1,9 @@
 ---
 - hosts: localhost
   vars:
-    jdk_major: "12"
+    jdk_major: "13"
     jdk_minor: "0"
-    jdk_build: "2"
+    jdk_build: "0"
 
   tasks:
 

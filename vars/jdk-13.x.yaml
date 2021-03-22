@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 13.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk13/5b8a42f3905b406298b72d750b6919f6/33/GPL/openjdk-13_osx-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-13.jdk"
+  when:
+    - jdk_major == "13"
+    - jdk_minor == "0"
+    - jdk_build == "0"
