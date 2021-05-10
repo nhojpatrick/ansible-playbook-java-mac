@@ -11,15 +11,8 @@
       include_vars:
         file: vars.yaml
 
-    - name: Include JDK 10.x Overrides
-      include_tasks: vars/jdk-10.x.yaml
-      when:
-        - jdk_major == "10"
-
-    - name: Include JDK 11.x Overrides
-      include_tasks: vars/jdk-11.x.yaml
-      when:
-        - jdk_major == "11"
+    - name: Include JDK {{ jdk_major }}.x Overrides
+      include_tasks: "vars/jdk-{{ jdk_major }}.x.yaml"
 
     - name: Checking if jdk already installed
       stat:
