@@ -1,4 +1,4 @@
-jdk_file: "openjdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('-ea+', '.' + jdk_minor + '.') }}{{ jdk_build }}_osx-x64_bin.tar.gz"
+jdk_file: "openjdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('-ea+', '.' + jdk_minor + '.') }}{{ jdk_build }}_{{ jdk_major == \"17\" and jdk_build is version('21', '>=') | ternary('macos', 'osx') }}-x64_bin.tar.gz"
 jdk_url: "https://download.java.net/java/early_access/jdk{{ jdk_major }}/{{ jdk_build }}/GPL/{{ jdk_file }}"
 jdk_archive_subdir: "jdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_minor) }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_build) }}.jdk"
 jvm_home: /Library/Java/JavaVirtualMachines
