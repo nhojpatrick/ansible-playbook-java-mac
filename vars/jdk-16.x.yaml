@@ -8,3 +8,11 @@
     - jdk_major == "16"
     - jdk_minor == "0"
     - jdk_build == "0"
+
+- name: Override - JDK 16.0.1
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_osx-x64_bin.tar.gz"
+  when:
+    - jdk_major == "16"
+    - jdk_minor == "0"
+    - jdk_build == "1"
