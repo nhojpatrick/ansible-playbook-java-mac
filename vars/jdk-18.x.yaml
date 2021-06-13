@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 18.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk18/43f95e8614114aeaa8e8a5fcf20a682d/36/GPL/openjdk-18_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-18.jdk"
+  when:
+    - jdk_major == "18"
+    - jdk_minor == "0"
+    - jdk_build == "0"
