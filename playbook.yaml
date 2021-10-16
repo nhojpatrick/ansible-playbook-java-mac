@@ -36,11 +36,11 @@
         - name: Download jdk
           get_url:
             url: "{{ jdk_url }}"
-            dest: "{{ jdk_tmp.path }}/{{ jdk_file }}"
+            dest: "{{ jdk_tmp.path }}/{{ jdk_dwnld_filename }}"
 
         - name: Unarchive jdk
           unarchive:
-            src: "{{ jdk_tmp.path }}/{{ jdk_file }}"
+            src: "{{ jdk_tmp.path }}/{{ jdk_dwnld_filename }}"
             dest: "{{ jdk_tmp.path }}/"
 
         - name: Relocate jdk
