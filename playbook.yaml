@@ -35,7 +35,7 @@
 
         - name: Download jdk
           get_url:
-            url: "{{ jdk_url }}"
+            url: "{{ jdk_dwnld_url }}"
             dest: "{{ jdk_tmp.path }}/{{ jdk_dwnld_filename }}"
 
         - name: Unarchive jdk

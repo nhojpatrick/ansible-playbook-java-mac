@@ -2,7 +2,7 @@
 
 - name: Override - JDK 11.0.0
   set_fact:
-    jdk_url: "https://download.java.net/java/ga/jdk11/openjdk-11_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/ga/jdk11/openjdk-11_osx-x64_bin.tar.gz"
     jdk_archive_subdir: "jdk-11.jdk"
   when:
     - jdk_major == "11"
@@ -11,7 +11,7 @@
 
 - name: Override - JDK 11.0.1
   set_fact:
-    jdk_url: "https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz"
   when:
     - jdk_major == "11"
     - jdk_minor == "0"
@@ -19,7 +19,7 @@
 
 - name: Override - JDK 11.0.2
   set_fact:
-    jdk_url: "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
   when:
     - jdk_major == "11"
     - jdk_minor == "0"

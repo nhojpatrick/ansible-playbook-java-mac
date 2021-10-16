@@ -2,7 +2,7 @@
 
 - name: Override - JDK 10.0.0
   set_fact:
-    jdk_url: "https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_osx-x64_bin.tar.gz"
     jdk_archive_subdir: "jdk-10.jdk"
   when:
     - jdk_major == "10"
@@ -11,7 +11,7 @@
 
 - name: Override - JDK 10.0.1
   set_fact:
-    jdk_url: "https://download.java.net/java/GA/jdk10/10.0.1/fb4372174a714e6b8c52526dc134031e/10/openjdk-10.0.1_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk10/10.0.1/fb4372174a714e6b8c52526dc134031e/10/openjdk-10.0.1_osx-x64_bin.tar.gz"
   when:
     - jdk_major == "10"
     - jdk_minor == "0"
@@ -19,7 +19,7 @@
 
 - name: Override - JDK 10.0.2
   set_fact:
-    jdk_url: "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
   when:
     - jdk_major == "10"
     - jdk_minor == "0"
