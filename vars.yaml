@@ -1,6 +1,6 @@
 ---
-jdk_file_arch: "{{ ( jdk_major is version('18', '>=') or ( jdk_major == \"17\" and jdk_build is version('21', '>=') ) ) | ternary('macos', 'osx') }}"
-jdk_dwnld_filename: "openjdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('-ea+', '.' + jdk_minor + '.') }}{{ jdk_build }}_{{ jdk_file_arch }}-x64_bin.tar.gz"
+jdk_dwnld_arch: "{{ ( jdk_major is version('18', '>=') or ( jdk_major == \"17\" and jdk_build is version('21', '>=') ) ) | ternary('macos', 'osx') }}"
+jdk_dwnld_filename: "openjdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('-ea+', '.' + jdk_minor + '.') }}{{ jdk_build }}_{{ jdk_dwnld_arch }}-x64_bin.tar.gz"
 jdk_url: "https://download.java.net/java/early_access/jdk{{ jdk_major }}/{{ jdk_build }}/GPL/{{ jdk_dwnld_filename }}"
 #
 jdk_archive_subdir: "jdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_minor) }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_build) }}.jdk"
