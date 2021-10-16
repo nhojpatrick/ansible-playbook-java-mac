@@ -1,8 +1,12 @@
+---
 jdk_file_arch: "{{ ( jdk_major is version('18', '>=') or ( jdk_major == \"17\" and jdk_build is version('21', '>=') ) ) | ternary('macos', 'osx') }}"
 jdk_file: "openjdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('-ea+', '.' + jdk_minor + '.') }}{{ jdk_build }}_{{ jdk_file_arch }}-x64_bin.tar.gz"
 jdk_url: "https://download.java.net/java/early_access/jdk{{ jdk_major }}/{{ jdk_build }}/GPL/{{ jdk_file }}"
+#
 jdk_archive_subdir: "jdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_minor) }}{{ (jdk_minor == \"ea\") | ternary('', '.' + jdk_build) }}.jdk"
+#
 jvm_home: /Library/Java/JavaVirtualMachines
 java_dir_name: "jdk-{{ jdk_major }}{{ (jdk_minor == \"ea\") | ternary('_ea_', '.' + jdk_minor + '.') }}{{ jdk_build }}.jdk"
+#
 java_owner: root
 java_group: wheel
