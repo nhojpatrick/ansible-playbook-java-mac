@@ -19,6 +19,22 @@
         path: "{{ jvm_home }}/{{ java_dir_name }}"
       register: java_home
 
+    - name: Checking if Maven ToolChains installed
+      stat:
+        path: '~/.m2/toolchains.xml'
+      register: mvn_toolchain
+
+    - name: Update Maven ToolChains
+      ansible.builtin.lineinfile:
+        state: present
+        create: false
+        path: '~/.m2/toolchains.xml'
+        regexp: "^			<jdkHome>/Library/Java/JavaVirtualMachines/jdk-{{ jdk_major }}"
+        line: "			<jdkHome>/Library/Java/JavaVirtualMachines/{{ java_dir_name }}/Contents/Home</jdkHome>"
+      when:
+        - java_home.stat.exists
+        - mvn_toolchain.stat.exists
+
     - name: Fail if jdk already installed
       fail:
         msg: "Already installed {{ jvm_home }}/{{ java_dir_name }}"
@@ -60,6 +76,16 @@
             recurse: yes
             owner: "{{ java_owner }}"
             group: "{{ java_group }}"
+
+        - name: Update Maven ToolChains
+          ansible.builtin.lineinfile:
+            state: present
+            create: false
+            path: '~/.m2/toolchains.xml'
+            regexp: "^			<jdkHome>/Library/Java/JavaVirtualMachines/jdk-{{ jdk_major }}"
+            line: "			<jdkHome>/Library/Java/JavaVirtualMachines/{{ java_dir_name }}/Contents/Home</jdkHome>"
+          when:
+            - mvn_toolchain.stat.exists
 
       always:
 
