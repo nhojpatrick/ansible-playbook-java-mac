@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 19.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk19/877d6127e982470ba2a7faa31cc93d04/36/GPL/openjdk-19_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-19.jdk"
+  when:
+    - jdk_major == "19"
+    - jdk_minor == "0"
+    - jdk_build == "0"
