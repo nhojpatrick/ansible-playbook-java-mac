@@ -87,6 +87,33 @@
           when:
             - mvn_toolchain.stat.exists
 
+        - name: Previous ea jdk check
+          stat:
+            path: "/Library/Java/JavaVirtualMachines/jdk-{{ jdk_major }}_ea_{{ ( jdk_build | int ) - 1 }}.jdk"
+          register: previous_java_home
+          when:
+            - jdk_minor == "ea"
+
+        - name: Previous ea jdk relocate
+          become: True
+          copy:
+            src: "/Library/Java/JavaVirtualMachines/jdk-{{ jdk_major }}_ea_{{ ( jdk_build | int ) - 1 }}.jdk"
+            dest:  "/Library/Java/JavaVirtualMachines.bk/"
+            remote_src: yes
+            owner: "{{ java_owner }}"
+            group: "{{ java_group }}"
+          when:
+            - jdk_minor == "ea"
+            - previous_java_home.stat.exists
+
+        - name: Previous ea jdk cleanup
+          become: True
+          file:
+            path: "/Library/Java/JavaVirtualMachines/jdk-{{ jdk_major }}_ea_{{ ( jdk_build | int ) - 1 }}.jdk"
+            state: absent
+          when:
+            - jdk_minor == "ea"
+
       always:
 
         - name: Clean up temporary jdk directory
