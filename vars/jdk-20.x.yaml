@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 20.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk20/bdc68b4b9cbc4ebcb30745c85038d91d/36/GPL/openjdk-20_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-20.jdk"
+  when:
+    - jdk_major == "20"
+    - jdk_minor == "0"
+    - jdk_build == "0"
