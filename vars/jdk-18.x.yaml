@@ -17,3 +17,10 @@
     - jdk_minor == "0"
     - jdk_build == "1.1"
 
+- name: Override - JDK 18.0.2
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk18.0.2/f6ad4b4450fd4d298113270ec84f30ee/9/GPL/openjdk-18.0.2_macos-x64_bin.tar.gz"
+  when:
+    - jdk_major == "18"
+    - jdk_minor == "0"
+    - jdk_build == "2"
