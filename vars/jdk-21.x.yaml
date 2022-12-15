@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 21.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-21.jdk"
+  when:
+    - jdk_major == "21"
+    - jdk_minor == "0"
+    - jdk_build == "0"
