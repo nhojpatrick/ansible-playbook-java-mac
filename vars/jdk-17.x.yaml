@@ -48,3 +48,11 @@
     - jdk_major == "17"
     - jdk_minor == "0"
     - jdk_build == "5"
+
+- name: Override - JDK 17.0.6
+  set_fact:
+    jdk_dwnld_url: "https://download.oracle.com/java/17/archive/jdk-17.0.6_macos-x64_bin.tar.gz"
+  when:
+    - jdk_major == "17"
+    - jdk_minor == "0"
+    - jdk_build == "6"
