@@ -16,3 +16,11 @@
     - jdk_major == "20"
     - jdk_minor == "0"
     - jdk_build == "1"
+
+- name: Override - JDK 20.0.2
+  set_fact:
+    jdk_dwnld_url: "https://download.oracle.com/java/20/archive/jdk-20.0.2_macos-x64_bin.tar.gz"
+  when:
+    - jdk_major == "20"
+    - jdk_minor == "0"
+    - jdk_build == "2"
