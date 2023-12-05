@@ -3,7 +3,7 @@
   vars:
     jdk_major: "22"
     jdk_minor: "ea"
-    jdk_build: "19"
+    jdk_build: "20"
 
   tasks:
 
