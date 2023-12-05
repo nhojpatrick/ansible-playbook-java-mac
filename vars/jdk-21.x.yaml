@@ -8,3 +8,11 @@
     - jdk_major == "21"
     - jdk_minor == "0"
     - jdk_build == "0"
+
+- name: Override - JDK 21.0.1
+  set_fact:
+    jdk_dwnld_url: "https://download.oracle.com/java/21/archive/jdk-21.0.1_macos-x64_bin.tar.gz"
+  when:
+    - jdk_major == "21"
+    - jdk_minor == "0"
+    - jdk_build == "1"
