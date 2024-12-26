@@ -1,1 +1,10 @@
 ---
+
+- name: Override - JDK 23.0.0
+  set_fact:
+    jdk_dwnld_url: "https://download.oracle.com/java/23/archive/jdk-23_macos-x64_bin.tar.gz"
+    jdk_archive_subdir: "jdk-23.jdk"
+  when:
+    - jdk_major == "23"
+    - jdk_minor == "0"
+    - jdk_build == "0"
